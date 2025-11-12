@@ -1,0 +1,538 @@
+/* 🌑 THEME: Solo Leveling Style (ม่วง-ดำ ซองจินอู) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  background-color: #0b0b14; /* ดำอมม่วงเข้ม */
+  color: #eee;
+}
+
+/* Header */
+/* ===============================
+   🔮 ปรับ Header และ Logo ให้เท่ขึ้น
+   =============================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #0e031a, #2a1155, #3b1d63);
+  padding: 12px 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(150, 90, 255, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* โลโก้ + ชื่อเว็บ */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ✅ โลโก้ให้มีขนาดและเงา Glow สวย ๆ */
+.logo {
+  height: 48px; /* ขนาดพอดีสายตา */
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(160, 90, 255, 0.7))
+          drop-shadow(0 0 25px rgba(80, 140, 255, 0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Hover ให้โลโก้มีชีวิต */
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 18px rgba(170, 120, 255, 0.9))
+          drop-shadow(0 0 30px rgba(90, 180, 255, 0.7));
+}
+
+/* ✅ ชื่อเว็บ “Aniverse” */
+.site-title {
+  font-family: 'Poppins', 'Prompt', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #b693ff, #6ea6ff, #9b6dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(150, 90, 255, 0.5);
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+
+/* Hover ขยับนิดๆ วิบวับ */
+.site-title:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 20px rgba(170, 120, 255, 0.8);
+}
+
+/* ปุ่มเมนู */
+.menu-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.menu-btn span {
+  width: 26px;
+  height: 3px;
+  background: #d3b0ff;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Hover เมนู */
+.menu-btn:hover span {
+  background: #8f5cff;
+  box-shadow: 0 0 8px rgba(160, 100, 255, 0.7);
+}
+
+.site-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #dcd0ff;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #1a1528;
+  border-radius: 30px;
+  padding: 5px 15px;
+  width: 300px;
+  box-shadow: 0 0 6px rgba(150, 90, 255, 0.4);
+}
+
+.search-box i {
+  font-size: 18px;
+  color: #a076ff;
+  margin-right: 8px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.header-right i {
+  color: #c0a0ff;
+  font-size: 26px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-right i:hover {
+  color: #8f5cff;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  width: 220px;
+  height: calc(100vh - 60px);
+  background: #141020;
+  border-right: 1px solid #2a1e44;
+  overflow-y: auto;
+  transition: left 0.3s;
+  box-shadow: 2px 0 12px rgba(90, 40, 255, 0.1);
+}
+
+.sidebar.hide {
+  left: -220px;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 20px;
+}
+
+.sidebar-list li {
+  margin-bottom: 18px;
+}
+
+.sidebar-list a {
+  text-decoration: none;
+  color: #bbaaff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-list a:hover,
+.sidebar-list a.active {
+  background: linear-gradient(90deg, #5a32a8, #8f5cff);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(150, 90, 255, 0.6);
+}
+
+.sidebar-list i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Content */
+.content {
+  margin-top: 70px;
+  margin-left: 220px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.content.full {
+  margin-left: 0;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #a076ff;
+}
+
+/* Anime Grid */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.anime-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 550px; /* การ์ดจะไม่ต่ำกว่านี้ */
+}
+
+.anime-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anime-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(140, 83, 255, 0.4);
+}
+
+.anime-card img {
+  width: 100%;
+  height: auto; /* ✅ ให้ภาพสูงตามสัดส่วนจริง */
+  aspect-ratio: 3 / 4; /* ✅ บังคับให้สัดส่วนคงที่แนวตั้ง (ถ้าอยากสูงแบบโปสเตอร์) */
+  object-fit: cover;
+  border-bottom: 2px solid rgba(150, 90, 255, 0.2); /* เพิ่มขอบล่างม่วงบางๆ สวยขึ้น */
+  transition: transform 0.3s ease;
+}
+
+.anime-card:hover img {
+  transform: scale(1.05); /* ✅ เพิ่ม effect ซูมเบาๆ ตอน hover */
+}
+
+.anime-info {
+  padding: 12px;
+}
+
+.anime-info h3 {
+  font-size: 16px;
+  color: #a076ff;
+  margin-bottom: 5px;
+}
+
+.anime-info p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.anime-info .desc {
+  font-size: 13px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* ปุ่มหมวดหมู่ */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-bar button {
+  background: linear-gradient(90deg, #5a32a8, #8f5cff);
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(140, 83, 255, 0.3);
+}
+
+.category-bar button:hover {
+  background: linear-gradient(90deg, #8f5cff, #4e9bff);
+  box-shadow: 0 0 15px rgba(150, 100, 255, 0.6);
+}
+
+/* ปุ่มย้อนกลับวงกลมสีแดง */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* กำหนดให้ไอคอนอยู่กลางวงกลม */
+  width: 50px;   /* ความกว้างของวงกลม */
+  height: 50px;  /* ความสูงของวงกลม */
+  background-color: #ff4d4d; /* สีแดงสด */
+  color: #fff;              /* ไอคอนสีขาว */
+  text-decoration: none;
+  border-radius: 50%;        /* ทำให้เป็นวงกลม */
+  font-weight: bold;
+  font-size: 20px; /* ขนาดไอคอน */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ไอคอนลูกศร / กากบาท */
+.back-btn i {
+  display: block;
+}
+
+/* Hover effect */
+.back-btn:hover {
+  background-color: #e60000; /* สีแดงเข้มเมื่อ hover */
+  transform: scale(1.1);      /* ขยายเล็กน้อยเมื่อ hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   ✅ ปรับภาพรายละเอียดอนิเมะ
+   =============================== */
+.content img.anime-cover {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 100px auto 25px;
+  border-radius: 14px;
+  object-fit: cover;
+  background-color: #0b0b14;
+  box-shadow: 0 0 30px rgba(150, 90, 255, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content img.anime-cover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(170, 120, 255, 0.55);
+}
+
+@media (max-width: 800px) {
+  .content img.anime-cover {
+    max-width: 95%;
+    margin-top: 90px;
+  }
+}
+
+
+/* ===============================
+   🟣 สไตล์สำหรับหน้าข้อมูลอนิเมะ
+   =============================== */
+.content {
+  margin-top: 70px;
+  margin-left: 220px;
+  padding: 20px 40px; /* เพิ่ม padding ด้านข้างนิด */
+  transition: margin-left 0.3s;
+  color: #eee;
+  background: none;
+  box-shadow: none;
+  max-width: calc(100% - 220px); /* 💥 ให้เต็มจอแต่เผื่อ sidebar */
+  width: 100%;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 💜 เพิ่มขนาดการ์ดนิด */
+  gap: 25px;
+  justify-items: center;
+}
+
+
+/* หัวข้อหลัก */
+.content h1 {
+  font-size: 30px;
+  text-align: center;
+  color: #b58cff;
+  text-shadow: 0 0 15px rgba(160, 100, 255, 0.6);
+  margin-bottom: 20px;
+}
+
+/* หัวข้อรอง */
+.content h2 {
+  font-size: 22px;
+  color: #a076ff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  border-left: 5px solid #8f5cff;
+  padding-left: 12px;
+  text-shadow: 0 0 10px rgba(150, 90, 255, 0.3);
+}
+
+/* ย่อหน้า */
+.content p {
+  margin-bottom: 12px;
+  color: #ddd;
+  text-align: justify;
+}
+
+/* รายการ */
+.content ul {
+  margin: 10px 0 20px 25px;
+  list-style: disc;
+  color: #ccc;
+}
+
+.content li {
+  margin-bottom: 8px;
+}
+
+/* ตัวเน้น */
+.content strong {
+  color: #b693ff;
+}
+
+.content em {
+  color: #9f8aff;
+  font-style: italic;
+}
+
+/* เอฟเฟกต์ Hover สำหรับหัวข้อ */
+.content h2:hover {
+  color: #d3b0ff;
+  transform: translateX(3px);
+  transition: all 0.3s ease;
+}
+
+/* ปรับภาพให้กลืนกับพื้นหลัง */
+.content img.anime-cover {
+  margin-top: 120px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(150, 100, 255, 0.3);
+}
+
+/* ===============================
+   ⭐ สถิติอนิเมะ (ยอดดู / ถูกใจ / คะแนน)
+   =============================== */
+.anime-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 25px auto 40px;
+  flex-wrap: wrap;
+  background: rgba(25, 20, 40, 0.6);
+  border-radius: 16px;
+  padding: 20px 30px;
+  box-shadow: 0 0 20px rgba(150, 90, 255, 0.25);
+  max-width: 700px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ccc;
+  min-width: 100px;
+}
+
+.stat-item i {
+  font-size: 32px;
+  color: #a076ff;
+  margin-bottom: 8px;
+  text-shadow: 0 0 8px rgba(160, 100, 255, 0.6);
+}
+
+.stat-item span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat-item p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* เพิ่มเอฟเฟกต์ hover เบา ๆ */
+.stat-item:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+  text-shadow: 0 0 10px rgba(160, 100, 255, 0.6);
+}
+
+.anime-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(20, 10, 40, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(140, 80, 255, 0.3);
+  max-width: 700px;
+}
+
+.anime-stats .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ddd;
+  transition: 0.3s;
+}
+
+.anime-stats .stat-item .stat-icon {
+  font-size: 28px;
+  color: #b693ff;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 8px rgba(160, 100, 255, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anime-stats .stat-item span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.anime-stats .stat-item p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.anime-stats .like-button:hover .bx-heart {
+  color: #ff6699;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(255, 100, 150, 0.7));
+}
